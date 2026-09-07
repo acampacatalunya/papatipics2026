@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Ciutadana: Pla d'atenció al Parkinson de Catalunya 2026</title>
+    <style>
+        :root {
+            --primary-color: #005a9c;
+            --secondary-color: #00a8e1;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --text-light: #555555;
+            --accent-color: #e63946;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+header p {
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 10px auto 0;
+    line-height: 1.5;
+}
+
+        main {
+            max-width: 900px;
+            margin: -30px auto 40px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+
+        .highlight-box {
+            background-color: #eef7ff;
+            border-left: 5px solid var(--secondary-color);
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-card .label {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .diseases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .disease-card {
+            background: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: transform 0.2s;
+        }
+
+        .disease-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .disease-card .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .disease-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .lines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .line-card {
+            background: #fff;
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .line-card .num {
+            background: var(--secondary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+            float: left;
+        }
+
+        .line-card p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .steps {
+            counter-reset: step-counter;
+            list-style-type: none;
+            margin-top: 20px;
+        }
+
+        .steps li {
+            counter-increment: step-counter;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 60px;
+            min-height: 50px;
+        }
+
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .steps li strong {
+            display: block;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .warning {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+        }
+
+        .principles-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .principles-list li {
+            padding: 10px 0 10px 35px;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+
+        .principles-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 10px;
+            background: var(--secondary-color);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #ddd;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.6rem; }
+            .card { padding: 20px; }
+            .steps li { padding-left: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🧠 Guia Ciutadana: Pla del Parkinson de Catalunya</h1>
+        <p>Explicació senzilla del Pla d'atenció a les persones afectades de malaltia de Parkinson i parkinsonismes atípics de Catalunya (Agost 2026).</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>📌 Què és aquest Pla i per a què serveix?</h2>
+            <p>El <strong>Pla d'atenció al Parkinson i parkinsonismes atípics de Catalunya</strong> és el full de ruta del Departament de Salut per garantir que les persones amb aquestes malalties i les seves famílies rebin una <strong>atenció de qualitat, equitativa, continuada i de proximitat</strong> durant tota la vida.</p>
+            <p>S'emmarca dins l'Estratègia nacional de malalties neurodegeneratives del Sistema Nacional de Salut i compta amb el finançament del Ministeri de Sanitat. Ha estat elaborat amb la participació de <strong>professionals sanitaris, pacients, familiars i associacions</strong>.</p>
+            <div class="highlight-box">
+                <strong>💡 Idea clau:</strong> El Pla vol que cap persona amb Parkinson se senti sola o desatesa en cap moment del seu procés: des del primer símptoma fins al final de la vida.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>📊 La malaltia a Catalunya: les xifres</h2>
+            <p>El Parkinson i els parkinsonismes atípics són molt presents al nostre territori. Aquestes són les dades més rellevants del 2025:</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="number">34.356</span>
+                    <span class="label">Persones amb Parkinson a Catalunya</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">4,2 ‰</span>
+                    <span class="label">Prevalença (casos per 1.000 habitants)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">76-78</span>
+                    <span class="label">Edat mediana (homes / dones)</span>
+                </div>
+                <div class="stat-card">
+                    <span class="number">+52%</span>
+                    <span class="label">Supervivència a 7 anys en dones</span>
+                </div>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Atenció:</strong> Les persones amb Parkinson fan un ús més elevat dels serveis sanitaris, consumeixen més medicaments i tenen una taxa d'ingressos hospitalaris més alta que la població de la seva mateixa edat.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>🩺 A qui va dirigit? Les 4 malalties que inclou</h2>
+            <p>El Pla no només parla del Parkinson clàssic, sinó també d'altres malalties similars però més rares i amb una evolució més ràpida:</p>
+            
+            <div class="diseases-grid">
+                <div class="disease-card">
+                    <div class="icon">🧠</div>
+                    <h4>Malaltia de Parkinson (MP)</h4>
+                    <p>La més freqüent. Símptomes principals: tremolor, rigidesa, lentitud de moviments i problemes d'equilibri. Evolució llarga.</p>
+                </div>
+                <div class="disease-card">
+                    <div class="icon">⚡</div>
+                    <h4>Atròfia Multisistèmica (AMS)</h4>
+                    <p>Parkinsonisme atípic amb disautonomia (problemes de pressió arterial, bufeta...). Evolució més ràpida i agressiva.</p>
+                </div>
+                <div class="disease-card">
+                    <div class="icon">👁️</div>
+                    <h4>Paràlisi Supranuclear Progressiva (PSP)</h4>
+                    <p>Caigudes freqüents, dificultat per moure els ulls (especialment cap avall) i problemes cognitius.</p>
+                </div>
+                <div class="disease-card">
+                    <div class="icon">🔄</div>
+                    <h4>Degeneració Corticobasal (DCB)</h4>
+                    <p>Símptomes asimètrics: rigidesa, moviments involuntaris i problemes del llenguatge o de reconeixement d'objectes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>🎯 Els 8 principis que guien l'atenció</h2>
+            <p>Tot el model d'atenció es fonamenta en aquests valors:</p>
+            <ul class="principles-list">
+                <li><strong>Atenció centrada en la persona:</strong> respectant les seves necessitats, valors i preferències.</li>
+                <li><strong>Decisions compartides:</strong> entre el pacient, la família i els professionals.</li>
+                <li><strong>Continuïtat assistencial:</strong> equips multidisciplinaris durant tot el procés, fins al final de vida.</li>
+                <li><strong>Atenció integral i de proximitat.</strong></li>
+                <li><strong>Equitat:</strong> mateix accés i mateixos resultats per a tothom, amb perspectiva de gènere.</li>
+                <li><strong>Eficàcia i eficiència:</strong> basades en l'evidència científica.</li>
+                <li><strong>Compartició de dades</strong> per avaluar i investigar.</li>
+                <li><strong>Participació ciutadana</strong> en el disseny del Pla.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>🛤️ El recorregut del pacient: de la sospita al seguiment</h2>
+            <p>El Pla dibuixa un camí clar per a les persones afectades:</p>
+            
+            <ol class="steps">
+                <li>
+                    <strong>1. Detecció precoç</strong>
+                    Els metges de família, traumatòlegs, psiquiatres, otorrinolaringòlegs i altres especialistes han d'estar alerta davant símptomes com tremolor, rigidesa, pèrdua d'olfacte, trastorns del son o depressió.
+                </li>
+                <li>
+                    <strong>2. Derivació a Neurologia (màxim 2 mesos)</strong>
+                    Si hi ha sospita, el pacient ha de ser vist per un neuròleg en un termini màxim de 2 mesos.
+                </li>
+                <li>
+                    <strong>3. Confirmació del diagnòstic (màxim 3 mesos)</strong>
+                    El neuròleg confirma la malaltia amb proves clíniques, d'imatge i, si cal, genètiques. S'informa el pacient i la família amb empatia i claredat.
+                </li>
+                <li>
+                    <strong>4. Pla Terapèutic Individualitzat (PTI)</strong>
+                    Es dissenya un pla a mida amb tractaments farmacològics, rehabilitació, logopèdia, nutrició, psicologia i suport social.
+                </li>
+                <li>
+                    <strong>5. Seguiment continuat</strong>
+                    Visites periòdiques per monitorar l'evolució, ajustar tractaments i detectar complicacions motores i no motores.
+                </li>
+                <li>
+                    <strong>6. Atenció en fase avançada i final de vida</strong>
+                    Quan la malaltia progressa, es prioritzaran el confort, les cures pal·liatives i el respecte a la voluntat del pacient (DVA i PDA).
+                </li>
+            </ol>
+        </section>
+
+        <section class="card">
+            <h2>💊 Tractaments: farmacològics i no farmacològics</h2>
+            <p>El Pla aposta per un abordatge complet, no només amb medicaments:</p>
+            
+            <h3>💊 Tractament farmacològic</h3>
+            <p>Inclou levodopa, agonistes dopaminèrgics, IMAO-B, ICOMT i, en fases avançades, <strong>teràpies complexes</strong> com infusions contínues o estimulació cerebral profunda. En els parkinsonismes atípics, els fàrmacs són menys efectius.</p>
+            
+            <h3>🏃 Tractament no farmacològic (igual d'important!)</h3>
+            <ul style="margin-left: 20px; color: var(--text-light);">
+                <li><strong>Fisioteràpia i rehabilitació:</strong> per mantenir la mobilitat i prevenir caigudes.</li>
+                <li><strong>Logopèdia:</strong> per a problemes de veu i deglució (disfàgia).</li>
+                <li><strong>Teràpia ocupacional:</strong> per adaptar la llar i mantenir l'autonomia.</li>
+                <li><strong>Psicologia:</strong> per abordar depressió, ansietat i aspectes cognitius.</li>
+                <li><strong>Nutrició:</strong> per prevenir la desnutrició i la disfàgia.</li>
+                <li><strong>Prescripció social:</strong> activitats comunitàries per mantenir la xarxa social.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>🤝 Suport a l'entorn familiar i cuidadors</h2>
+            <p>El Pla reconeix que <strong>cuidar també cansa</strong> i posa la família al centre de l'atenció des del primer moment:</p>
+            <ul style="margin-left: 20px; color: var(--text-light);">
+                <li><strong>Avaluació de la sobrecàrrega del cuidador</strong> amb l'escala de Zarit.</li>
+                <li><strong>Suport emocional i psicològic</strong> individual i en grups d'ajuda mútua.</li>
+                <li><strong>Formació i educació sanitària</strong> per aprendre a cuidar millor.</li>
+                <li><strong>Informació sobre recursos i prestacions socials.</strong></li>
+                <li><strong>Targeta Cuida'm</strong> per a cuidadors de persones amb MP o PA.</li>
+                <li><strong>Prevenció de la claudicació familiar</strong> (quan el cuidador ja no pot més).</li>
+            </ul>
+            <div class="highlight-box">
+                <strong>👨‍👩‍👧 La família també és pacient:</strong> El Pla preveu acompanyament emocional, espiritual i social tant en el moment del diagnòstic com durant tot el procés, especialment al final de la vida.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>🗺️ Les 9 línies estratègiques del Pla</h2>
+            <p>El Pla es desplega en <strong>23 projectes i 77 actuacions concretes</strong> agrupades en 9 grans eixos:</p>
+            
+            <div class="lines-grid">
+                <div class="line-card">
+                    <span class="num">1</span>
+                    <p><strong>Diagnòstic precoç</strong> de la MP i els PA.</p>
+                </div>
+                <div class="line-card">
+                    <span class="num">2</span>
+                    <p><strong>Tractament integral</strong> farmacològic i no farmacològic.</p>
+                </div>
+                <div class="line-card">
+                    <span class="num">3</span>
+                    <p><strong>Atenció continuada</strong> centrada en la persona.</p>
+                </div>
+                <div class="line-card">
+                    <span class="num">4</span>
+                    <p><strong>Atenció en fase avançada</strong> i final de vida.</p>
+                </div>
+                <div class="line-card">
+                    <span class="num">5</span>
+                    <p><strong>Suport a l'entorn familiar</strong> i de cura.</p>
+                </div>
+                <div class="line-card">
+                    <span class="num">6</span>
+                    <p><strong>Formació i promoció</strong> del coneixement.</p>
+                </div>
+                <div class="line-card">
+                    <span class="num">7</span>
+                    <p><strong>Definició dels àmbits assistencials</strong> (AP, hospital, CSUR...).</p>
+                </div>
+                <div class="line-card">
+                    <span class="num">8</span>
+                    <p><strong>Registre de la MP i els PA</strong> de Catalunya.</p>
+                </div>
+                <div class="line-card">
+                    <span class="num">9</span>
+                    <p><strong>Foment de la recerca</strong> bàsica i aplicada.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>🏥 On seràs atès? Els recursos del sistema</h2>
+            <p>El Pla organitza els recursos en una xarxa coordinada:</p>
+            <ul style="margin-left: 20px; color: var(--text-light);">
+                <li><strong>Atenció Primària i Comunitària (APiC):</strong> detecció precoç, seguiment, suport al cuidador, atenció domiciliària i final de vida.</li>
+                <li><strong>Serveis de Neurologia hospitalària:</strong> confirmació diagnòstica i seguiment especialitzat.</li>
+                <li><strong>Unitats de trastorns del moviment i CSUR:</strong> per als casos més complexos i teràpies avançades.</li>
+                <li><strong>Hospitals de dia intermedis:</strong> rehabilitació intensiva i ajust de tractaments.</li>
+                <li><strong>Equips de cures pal·liatives (PADES):</strong> en fase avançada.</li>
+                <li><strong>Centres de dia i residències:</strong> suport social i diürn.</li>
+                <li><strong>Associacions de pacients:</strong> suport emocional, fisioteràpia, logopèdia i defensa de drets.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>🔮 Escenaris de futur</h2>
+            <p>El Pla mira cap endavant i preveu tres grans reptes:</p>
+            <ul style="margin-left: 20px; color: var(--text-light);">
+                <li><strong>Envelliment de la població:</strong> s'espera un augment de casos en els propers anys.</li>
+                <li><strong>Medicina personalitzada:</strong> nous biomarcadors i tractaments a mida de cada persona.</li>
+                <li><strong>Intel·ligència artificial i robòtica social:</strong> per millorar la qualitat assistencial i l'autonomia.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Document informatiu elaborat a partir del <em>Pla d'atenció a les persones afectades de malaltia de Parkinson i parkinsonismes atípics de Catalunya</em> (Agost 2026). <br>
+        Departament de Salut. Generalitat de Catalunya. <br>
+        Aquesta guia no substitueix l'assessorament mèdic professional.</p>
+    </footer>
+
+</body>
+</html>
